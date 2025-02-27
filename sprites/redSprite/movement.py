@@ -4,9 +4,9 @@ from .red import redSquare
 from sprites.greenSprite.green import greenSquare
 import sprites.obstaculos as obstaculos
 
-#essa seção indica tudo que tem a ver com movimento
+#essa seção indica tudo que tem a ver com movimento do sprite vermelho
 
-def movementKeys(xred, yred):
+def movementKeys(xred, yred): # Movimento pelas teclas
     keys = pygame.key.get_pressed()
     if keys[K_LEFT]:
         xred -= 5
@@ -18,7 +18,7 @@ def movementKeys(xred, yred):
         yred += 5
     return xred, yred
 
-def movementBoundary(x, y, a, l):
+def movementBoundary(x, y, a, l): # Limites da tela
     if x < 0:
         x = 0
     if x > 460 - a:
@@ -29,18 +29,18 @@ def movementBoundary(x, y, a, l):
         y = 460 - l
     return x, y, a, l
 
-def walls(obstaculos, redSquare, x, y, colisao):
+def walls(obstaculos, redSquare, x, y, colisao): # Se tocar em qualquer obstáculo
     for obstaculo in obstaculos.obstaculos:
-        if redSquare.colliderect(obstaculo):  # Se tocar em qualquer obstáculo
+        if redSquare.colliderect(obstaculo):
             x = 10
             y = 10  
             colisao = True
             break
     return x, y, colisao
         
-def greenSquareTaken(redSquare, greenSquare, running):
-    if redSquare.colliderect(greenSquare):
+def greenSquareTaken(redSquare, greenSquare, running): # Se tocar no quadrado verde
+    if redSquare.colliderect(greenSquare.greenSquare):
             print("Você venceu!")
-            pygame.time.delay(2000)  # Aguarda 2 segundos antes de fechar
+            pygame.time.delay(2000)  
             running = False
     return redSquare, greenSquare, running

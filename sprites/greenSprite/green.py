@@ -1,4 +1,3 @@
-
 import pygame
 from config.config import xgreen, ygreen, ared, lred
 

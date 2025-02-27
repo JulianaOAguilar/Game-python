@@ -1,6 +1,5 @@
 import pygame
 
-
 obstaculos = [
     pygame.Rect(70, 0, 5, 200),
     pygame.Rect(70, 200, 280, 5),
